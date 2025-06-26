@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Course Details - LearnFast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.2em;
+            text-align: center;
+            padding-top: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-align: left; /* Default for sections */
+        }
+
+        h4 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        ul.checkmark-list li::before {
+            content: '✓'; /* Checkmark icon */
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 10px auto; /* Centered */
+            font-weight: 700;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            display: block; /* Make it a block button */
+            width: fit-content;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #007bff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #e0f0ff;
+            text-decoration: none;
+        }
+
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            margin-bottom: 10px;
+        }
+
+        /* Course Overview */
+        .course-overview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        .course-overview .image-box {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .course-overview .image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .course-overview .text-content {
+            flex: 2;
+            min-width: 300px;
+            text-align: left;
+        }
+        .course-overview .text-content h3 {
+            margin-top: 0;
+        }
+
+
+        /* Course Curriculum */
+        .module-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .module-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #007bff;
+            text-align: left;
+        }
+
+        .module-item h4 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+
+        .module-item ul {
+            padding-left: 20px;
+            list-style: disc; /* Default disc list for sub-topics */
+        }
+
+        .module-item ul li {
+            font-size: 0.95em;
+            margin-bottom: 5px;
+            padding-left: 0; /* Remove padding from specific list items */
+        }
+        .module-item ul li::before {
+            content: none; /* Remove checkmark from module sub-topics */
+        }
+
+
+        /* Prerequisites & Who Is This For */
+        .feature-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .feature-column-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            text-align: left;
+        }
+        .feature-column-item h3 {
+             color: #007bff;
+             margin-bottom: 20px;
+             text-align: center;
+        }
+
+        /* Instructor Profile */
+        .instructor-detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .instructor-detail img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #007bff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .instructor-detail h3 {
+            margin-bottom: 5px;
+            color: #0056b3;
+            font-size: 2.2em;
+        }
+
+        .instructor-detail .title {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .instructor-detail p {
+            text-align: justify;
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        /* Pricing & Enrollment */
+        .pricing-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            border-top: 5px solid #28a745;
+        }
+
+        .pricing-card h3 {
+            color: #28a745;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price {
+            font-size: 3em;
+            font-weight: 700;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .original-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 1.2em;
+            margin-left: 10px;
+        }
+
+        .pricing-card .discount {
+            color: #28a745;
+            font-weight: 600;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pricing-card p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .faq-item h4 {
+            color: #007bff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+
+        .faq-item .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-top: 0;
+        }
+
+        .faq-item.active .answer {
+            max-height: 200px; /* Adjust as needed */
+            padding-top: 15px;
+        }
+        .faq-item .answer p {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.95em;
+            margin-top: 50px;
+        }
+
+        .footer a {
+            color: #fff;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8em; }
+            h2 { font-size: 2.2em; }
+            h3 { font-size: 1.8em; }
+            .course-overview { flex-direction: column; }
+            .module-list, .feature-columns {
+                grid-template-columns: 1fr;
+            }
+            .pricing-card {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; padding-top: 20px; }
+            h2 { font-size: 1.8em; margin-bottom: 30px;}
+            h3 { font-size: 1.6em; }
+            .navbar .container { flex-direction: column; }
+            .navbar .logo { margin-bottom: 10px; }
+            .navbar-links a { margin: 0 10px; }
+            .section { padding: 40px 0; }
+            .course-overview .text-content { text-align: center; }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+                width: 100%;
+            }
+            .instructor-detail p {
+                text-align: left; /* Adjust for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">LearnFast</a>
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="#course-overview">Overview</a>
+                <a href="#curriculum">Curriculum</a>
+                <a href="#instructor">Instructor</a>
+                <a href="#pricing">Enroll</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="container">
+        <h1>Mastering Data Analytics: Comprehensive Course Details</h1>
+        <p class="section-intro">Dive deep into the world of data with LearnFast's industry-leading program. This page provides all the details you need to make an informed decision about accelerating your career.</p>
+    </header>
+
+    <section id="course-overview" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Course Overview</h2>
+            </div>
+            <div class="course-overview">
+                <div class="image-box">
+                    <img src="https://via.placeholder.com/600x400/007bff/ffffff?text=Data+Analytics+Overview" alt="Data Analytics Course Overview">
+                </div>
+                <div class="text-content">
+                    <h3>Transforming Data into Actionable Insights</h3>
+                    <p>The LearnFast Data Analytics Course is an intensive, project-based program designed to equip you with the most in-demand skills in the data analytics field. From understanding core statistical concepts to mastering advanced tools, this course provides a holistic learning experience.</p>
+                    <p>You'll work with real-world datasets, build impactful dashboards, and present your findings, preparing you directly for roles like Data Analyst, Business Intelligence Analyst, and Junior Data Scientist.</p>
+                    <ul class="checkmark-list">
+                        <li>**120+ hours** of comprehensive learning content</li>
+                        <li>**15+ hands-on projects** and case studies</li>
+                        <li>**Live weekly Q&A** with industry experts</li>
+                        <li>Access to premium **data visualization tools**</li>
+                        <li>Dedicated **career support** and portfolio review</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Detailed Course Curriculum</h2>
+                <p class="section-intro">Our curriculum is meticulously designed to cover fundamental to advanced topics, ensuring you build a solid foundation and practical expertise.</p>
+            </div>
+
+            <div class="module-list">
+                <div class="module-item">
+                    <h4>Module 1: Data Analytics Fundamentals & Excel</h4>
+                    <ul>
+                        <li>Introduction to Data Analytics Ecosystem</li>
+                        <li>Data Types, Sources, and Lifecycle</li>
+                        <li>Advanced Excel for Data Management and Analysis</li>
+                        <li>Data Cleaning and Transformation in Excel</li>
+                        <li>Basic Data Visualization in Excel</li>
+                    </ul>
+                </div>
+                <div class="module-item">
+                    <h4>Module 2: SQL for Data Professionals</h4>
+                    <ul>
+                        <li>Relational Databases & SQL Basics (SELECT, FROM, WHERE)</li>
+                        <li>Advanced Queries (JOINs, GROUP BY, HAVING)</li>
+                        <li>Subqueries, CTEs, and Window Functions</li>
+                        <li>Database Design Principles (Normalization)</li>
+                        <li>Working with Different SQL Dialects (MySQL, PostgreSQL)</li>
+                    </ul>
+                </div>
+                <div class="module-item">
+                    <h4>Module 3: Python for Data Analysis (NumPy, Pandas)</h4>
+                    <ul>
+                        <li>Python Programming Basics</li>
+                        <li>Data Structures (Lists, Dictionaries, Tuples)</li>
+                        <li>NumPy for Numerical Computing</li>
+                        <li>Pandas for Data Manipulation and Analysis</li>
+                        <li>Data Cleaning, Merging, and Reshaping with Pandas</li>
+                    </ul>
+                </div>
+                <div class="module-item">
+                    <h4>Module 4: Data Visualization & Storytelling</h4>
+                    <ul>
+                        <li>Principles of Effective Data Visualization</li>
+                        <li>Matplotlib and Seaborn for Static Visuals</li>
+                        <li>Interactive Dashboards with Plotly (Introduction)</li>
+                        <li>**Tableau Desktop Proficiency**</li>
+                        <li>Crafting Data Narratives & Presentations</li>
+                    </ul>
+                </div>
+                <div class="module-item">
+                    <h4>Module 5: Statistics & Predictive Modeling</h4>
+                    <ul>
+                        <li>Descriptive vs. Inferential Statistics</li>
+                        <li>Probability, Distributions, and Hypothesis Testing</li>
+                        <li>Regression Analysis (Linear, Logistic)</li>
+                        <li>Introduction to Supervised & Unsupervised Learning</li>
+                        <li>Model Evaluation Metrics</li>
+                    </ul>
+                </div>
+                <div class="module-item">
+                    <h4>Module 6: Big Data Concepts & Cloud (Optional)</h4>
+                    <ul>
+                        <li>Introduction to Big Data Ecosystem (Hadoop, Spark)</li>
+                        <li>Cloud Data Platforms (AWS S3/Redshift, Google BigQuery)</li>
+                        <li>Data Streaming Basics</li>
+                        <li>Data Governance & Ethics</li>
+                        <li>Final Capstone Project Planning & Execution</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prerequisites" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Who Is This Course For? & Prerequisites</h2>
+            </div>
+            <div class="feature-columns">
+                <div class="feature-column-item">
+                    <h3>Ideal Candidates</h3>
+                    <ul class="checkmark-list">
+                        <li>Individuals with a desire to start a career in data.</li>
+                        <li>Business analysts looking to upskill in technical tools.</li>
+                        <li>Marketing professionals wanting to leverage data.</li>
+                        <li>Recent graduates exploring data-driven roles.</li>
+                        <li>Anyone passionate about uncovering insights from data.</li>
+                    </ul>
+                </div>
+                <div class="feature-column-item">
+                    <h3>Prerequisites</h3>
+                    <ul class="checkmark-list">
+                        <li>Basic computer literacy and internet navigation skills.</li>
+                        <li>A strong desire to learn and problem-solve.</li>
+                        <li>Basic understanding of mathematics (algebra, basic statistics a plus).</li>
+                        <li>No prior coding experience is required (we start from scratch!).</li>
+                        <li>Reliable internet connection and a computer capable of running Anaconda/Tableau.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructor" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Your Expert Instructor: Dr. Anya Sharma</h2>
+            </div>
+            <div class="instructor-detail">
+                <img src="https://via.placeholder.com/180/007bff/ffffff?text=Anya+Sharma" alt="Dr. Anya Sharma Profile Picture">
+                <h3>Dr. Anya Sharma</h3>
+                <p class="title">Lead Data Scientist & Course Architect at LearnFast</p>
+                <p>Dr. Anya Sharma is a distinguished data scientist with over 15 years of experience leading data-driven initiatives across finance, healthcare, and e-commerce sectors. Holding a Ph.D. in Computer Science from IIT Bombay, she has a proven track record of extracting valuable insights from complex datasets and building robust predictive models.</p>
+                <p>Anya is passionate about education and committed to fostering the next generation of data professionals. Her teaching philosophy emphasizes hands-on learning, real-world applicability, and a deep understanding of underlying concepts. She makes complex topics accessible and engaging, providing personalized mentorship and drawing on her extensive industry experience to prepare students for successful careers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing & Enrollment Options</h2>
+                <p class="section-intro">Invest in your future with flexible pricing plans designed to fit your needs.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Limited Time Offer!</h3>
+                <div class="price">₹19,999 <span class="original-price">₹24,999</span></div>
+                <span class="discount">Save ₹5,000! (20% Off)</span>
+                <p>Includes full access to all course modules, projects, live sessions, instructor support, and career resources.</p>
+                <a href="#" class="btn btn-primary">Enroll Now & Lock In Your Discount!</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9em; color: #555;">Payment plans and EMI options available upon request.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions (FAQ)</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>What if I have no prior coding experience?<span style="float:right;">+</span></h4>
+                    <div class="answer">
+                        <p>No problem at all! This course is designed to start from the very basics of Python and SQL. We'll guide you step-by-step, ensuring you build a strong foundation even if you're a complete beginner.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h4>How long will I have access to the course content?<span style="float:right;">+</span></h4>
+                    <div class="answer">
+                        <p>You will have lifetime access to all course materials, including lecture videos, code notebooks, and project files. This allows you to revisit concepts whenever you need a refresher.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h4>What kind of support will I receive?<span style="float:right;">+</span></h4>
+                    <div class="answer">
+                        <p>You'll receive dedicated instructor support via our private community forum and during weekly live Q&A sessions. Our team is committed to helping you succeed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h4>Is there a certificate upon completion?<span style="float:right;">+</span></h4>
+                    <div class="answer">
+                        <p>Yes, upon successful completion of the course and all projects, you will receive a verifiable Certificate of Completion from LearnFast, which you can add to your LinkedIn profile and resume.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h4>What are the system requirements for this course?<span style="float:right;">+</span></h4>
+                    <div class="answer">
+                        <p>You'll need a computer (Windows, macOS, or Linux) with at least 8GB RAM, a reliable internet connection, and enough storage for software installations (Anaconda, Tableau Public). Specific software installation guides will be provided.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p><a href="index.html">LearnFast Home</a> | <a href="#faq">FAQ</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            <p>&copy; 2025 LearnFast. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item h4');
+
+            faqItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const parent = item.parentElement;
+                    const answer = parent.querySelector('.answer');
+
+                    parent.classList.toggle('active');
+                    if (parent.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        item.querySelector('span').textContent = '-';
+                    } else {
+                        answer.style.maxHeight = '0';
+                        item.querySelector('span').textContent = '+';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
