@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Data Analytics Course - LearnFast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5; /* Light grey background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px; /* Wider container for the form */
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        h1, h2 {
+            color: #0056b3;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            padding-top: 40px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #007bff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px; /* Adjust padding for navbar */
+        }
+
+        .navbar .logo {
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #e0f0ff;
+            text-decoration: none;
+        }
+
+        /* Registration Form Section */
+        .registration-section {
+            flex-grow: 1; /* Allows the section to expand and push footer down */
+            padding: 60px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .registration-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 650px; /* Max width for the form card */
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .registration-card p.intro {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            font-size: 1em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .form-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .form-group.checkbox-group label {
+            display: inline-block;
+            font-weight: 400;
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-submit {
+            background: #28a745; /* Green for submission */
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        .footer a {
+            color: #fff;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+                padding-top: 20px;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .navbar .container {
+                flex-direction: column;
+                padding: 10px 15px;
+            }
+            .navbar .logo {
+                margin-bottom: 10px;
+            }
+            .navbar-links a {
+                margin: 0 8px;
+            }
+            .registration-card {
+                padding: 25px;
+            }
+            .form-group label {
+                font-size: 0.95em;
+            }
+            .form-group input, .form-group select {
+                padding: 10px 12px;
+                font-size: 0.95em;
+            }
+            .btn-submit {
+                padding: 12px 30px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">LearnFast</a>
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="course_details.html">Course Details</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="registration-section">
+        <div class="container">
+            <div class="registration-card">
+                <h1>Register for Data Analytics Course</h1>
+                <p class="intro">Fill out the form below to secure your spot in LearnFast's highly sought-after Data Analytics program. Limited seats available!</p>
+
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Your Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 9876543210" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Your Experience Level</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">-- Select --</option>
+                            <option value="beginner">No experience / Beginner</option>
+                            <option value="intermediate">Some experience (e.g., Excel, basic coding)</option>
+                            <option value="advanced">Experienced in a related field</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation">Why are you interested in Data Analytics?</label>
+                        <textarea id="motivation" name="motivation" rows="4" placeholder="e.g., Career change, upskilling, personal interest..."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Subscribe to our newsletter for exclusive offers and updates.</label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Complete Registration</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p><a href="index.html">LearnFast Home</a> | <a href="course_details.html">Course Details</a> | <a href="#">FAQ</a> | <a href="#">Contact Us</a></p>
+            <p>&copy; 2025 LearnFast. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
